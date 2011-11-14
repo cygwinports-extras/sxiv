@@ -1,0 +1,13 @@
+DESCRIPTION="Simple X Image Viewer"
+HOMEPAGE="https://github.com/muennich/sxiv/"
+SRC_URI="https://github.com/downloads/muennich/sxiv/${P}.tar.gz"
+
+MAKEOPTS+=" PREFIX=/usr"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+DOCS="README.md"
