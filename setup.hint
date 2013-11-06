@@ -1,8 +1,0 @@
-category: Graphics X11
-requires: libImlib2_1 libX11_6
-sdesc: "Simple X Image Viewer"
-ldesc: "sxiv is an alternative to feh and qiv. Its only dependency 
-besides xlib is imlib2. The primary goal for writing sxiv is to create 
-an image viewer, which only has the most basic features required for 
-fast image viewing. It has vi key bindings and works nicely with tiling 
-window managers."
