@@ -1,5 +1,5 @@
 NAME="sxiv"
-VERSION=1.0
+VERSION=1.1.1
 RELEASE=1
 CATEGORY="Graphics"
 SUMMARY="Simple X Image Viewer"
@@ -8,14 +8,23 @@ xlib is imlib2. The primary goal for writing sxiv is to create an image viewer,
 which only has the most basic features required for fast image viewing. It has
 vi key bindings and works nicely with tiling window managers."
 HOMEPAGE="https://github.com/muennich/sxiv/"
-SRC_URI="https://github.com/downloads/muennich/sxiv/${NAME}-${VERSION}.tar.gz"
+GIT_URI="https://github.com/muennich/sxiv.git"
+GIT_TAG="v${VERSION}"
+inherit git
 
 MAKEOPTS+=" PREFIX=/usr"
 
 src_compile() {
 	lndirs
 	cd ${B}
-	cygmake
+	cygmake CFLAGS="${CFLAGS} -std=gnu99 -DHAVE_GIFLIB"
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	domenu ${S}/sxiv.desktop
 }
 
 DOCS="README.md"
